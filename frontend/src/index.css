@@ -1,0 +1,65 @@
+.main {
+ 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+} 
+  width: 100vw;
+  min-height: 100vh;
+  
+  /* 2. Background Image Properties */
+  background-image: url('./assets/images/group.png'); 
+  
+  /* CRUCIAL for responsiveness: Scales the image to cover the entire container */
+  background-size: cover; 
+  
+  /* CRUCIAL for centering: Centers the image horizontally and vertically */
+  background-position: center; 
+  
+  /* Prevents the image from repeating if the container is larger than the image */
+  background-repeat: no-repeat; 
+  
+  /* Optional: Keeps the background fixed while the user scrolls the page content */
+  background-attachment: fixed;
+  
+
+  display: flex;
+  flex-direction: column; /* Stacks content vertically */
+  justify-content: center; /* Vertically center content */
+  align-items: center;     /* Horizontally center content */
+}
+label {
+    color: white;
+    font-size: large;
+    font-weight: 500;
+
+}
+h1 {
+    color: white;
+}
+
+input {
+    border-radius: 10px;
+    
+    border: none;
+}
+.submit-btn {
+    background-color: #f27f0d;
+    border: none;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: larger;
+    font-weight: 600;
+    border-radius: 10px;
+    color: white;
+}
+

@@ -22,7 +22,7 @@ UserRouter.post('/signup',async (req,res) => {
     res.cookie('token',generatetoken)
 
     res.json({
-        message : "user creation sucess",
+        message : "user creation sucesss",
         user : user,
         password : hashedpassword,
         generatetoken : generatetoken
