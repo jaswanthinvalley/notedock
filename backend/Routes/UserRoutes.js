@@ -1,19 +1,35 @@
 const express = require("express")
-const { default: mongoose } = require("mongoose")
 const { UserModel } = require("../model/UserModel")
 const UserRouter = express.Router()
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
-UserRouter.route('/signup').get((req,res) => {
+UserRouter.post('/signup',async (req,res) => {
+    const {email,password} = req.body
+
+    const hashedpassword = await bcrypt.hash(password,10)
+
+    const user = await UserModel.create({
+        email,
+        hashedpassword
+    })
+
+    const jwtuser = {
+        email : email,
+        password : hashedpassword
+    }
+    const generatetoken = jwt.sign(jwtuser,"sampel")
+    res.cookie('token',generatetoken)
+
     res.json({
-        message : "welcome to the signin page"
+        message : "user creation sucess",
+        user : user,
+        password : hashedpassword,
+        generatetoken : generatetoken
+
     })
 
 })
 
-UserRouter.route('/login').get((req,res) => {
-    res.json({
-        message : "welcome to the login page"
-    })
-})
 
 module.exports = UserRouter;

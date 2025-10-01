@@ -13,7 +13,7 @@ app.listen(port,(data) => console.log(`the server is running in the port ${port}
 
 Db()
 
-app.use("/api/v1",UserRouter)
+app.use(UserRouter)
 app.get("/",(req,res) => res.json({
     messsage : "welcome you are in the root page",
     
