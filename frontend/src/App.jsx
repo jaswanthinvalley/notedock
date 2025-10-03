@@ -1,9 +1,12 @@
-import Main from "./pages/Main";
+import React from 'react'
 
+const App = () => {
+  return (
+    <div className='main-div'>
 
-
-export default function App () {
-  return(
-    <Main/>
+      hello this this the main page
+    </div>
   )
 }
+
+export default App

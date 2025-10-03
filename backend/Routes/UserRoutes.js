@@ -18,6 +18,7 @@ UserRouter.post('/signup',async (req,res) => {
         email : email,
         password : hashedpassword
     }
+    
     const generatetoken = jwt.sign(jwtuser,"sampel")
     res.cookie('token',generatetoken)
 
@@ -28,6 +29,23 @@ UserRouter.post('/signup',async (req,res) => {
         generatetoken : generatetoken
 
     })
+
+})
+
+UserRouter.post('/login',(req,res) => {
+
+    const {email,password} = req.body
+
+    const istrue = UserModel.findOne({email})
+
+    if(istrue) {
+        
+    res.json({
+        message : "true",
+    })
+    }
+
+
 
 })
 
